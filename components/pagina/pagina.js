@@ -2,8 +2,9 @@ import Button from "@/components/button/button"
 import ListaViajes from "@/components/viajes/listaViajes"
 import ListaGastos from "../gastos/listaGastos"
 import { mainContainer, container, btns} from "../../styles/Pages.module.css"
+import { btn } from "../button/button.module.css"
 
-const Pagina = ({titulo}) => {
+const Pagina = ({titulo, changeView, view, setView}) => {
     return(
         <div className={mainContainer}>
             <div className={container}>
@@ -14,7 +15,7 @@ const Pagina = ({titulo}) => {
                         <Button texto="Unirse a un viaje" link="unirseViaje"/>
                         <Button texto="Agregar un viaje" link="agregarViaje"/>
                         </div>
-                        <ListaViajes/>
+                        <ListaViajes changeView={changeView}/>
                     </>
                 }
                 {titulo !== "Mis viajes" && 
@@ -24,6 +25,8 @@ const Pagina = ({titulo}) => {
                         <Button texto="Mirar balance" link="balance"/>
                         </div>
                         <ListaGastos/>
+                        <button className={btn} onClick={() => {changeView('viajes', '')}}>Regresar</button>
+                        <br/>
                     </>
                 }
             </div>

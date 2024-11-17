@@ -2,10 +2,10 @@ import { viaje, letraColor } from "./Viaje.module.css"
 
 
 
-const Viaje = ({destino}) => {
+const Viaje = ({destino, changeView}) => {
     const urlDestino = "detalle-viaje?destino=" + destino
     return(
-        <a href={urlDestino} className={viaje}>
+        <a className={viaje} onClick={() => {changeView('detalle', destino)}}>
             <figure>
                 <img src="/images/avion.png" alt="avion"/>
             </figure>
