@@ -1,0 +1,41 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    justify-content: center;
+    
+}
+
+.mainContainer{
+    display: flex;
+    justify-content: center;
+    min-height: 90vh;
+    align-items: center;
+    background-color: #000000aa;
+    padding-top: 100px;
+}
+.mainContainer .container{
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 100px;
+}
+  
+  
+@media (max-width: 968px){
+    .btns{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+    }
+    .container{
+        padding-bottom: 100px;
+        padding-top: 100px;
+    }
+}

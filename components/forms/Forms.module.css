@@ -1,0 +1,7 @@
+.btn{
+    background: linear-gradient(to right, #000000, #3533cd);
+    color: #ffffff;
+    cursor: pointer;
+    height: 50px !important;
+    font-size: x-large;
+}

@@ -1,0 +1,7 @@
+.imgMain{
+    background-image: url('/images/viaje-amigos.jpg');
+    width: 100%;
+    min-height: 500px;
+    background-size: cover;
+    background-position: 10% 50%;
+}

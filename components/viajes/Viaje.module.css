@@ -1,0 +1,56 @@
+.viajes{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+  
+@media (max-width: 968px){
+    .viajes{
+        flex-direction: column;
+    }
+}
+
+
+.viaje{
+    display: flex;
+    min-height: 150px;
+    width: 40%;
+    flex-grow: 1;
+    background: linear-gradient(to right, #ffffff, #1b1a47);
+    color: #000000;
+    border-radius: 10px;
+    text-decoration: none;
+    align-items: center;
+    font-size: x-large;
+}
+
+.viaje figure{
+    width: 100px;
+}
+
+.viaje figure img{
+    width: 100%;
+}
+
+.viaje:hover{
+    width: 50%;
+}
+
+.letraColor{
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    background: linear-gradient(to right, #000000, #3533cd);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+
+
+
+@media (max-width: 968px){
+    .viaje{
+        width: 100% !important;
+    }
+}

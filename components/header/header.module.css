@@ -1,0 +1,42 @@
+.header{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70px;
+}
+
+.navLogo{
+    display: flex;
+    align-items: center;
+}
+
+.logo{
+    flex-grow: 2;
+}
+
+.logo a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: x-large;
+}
+
+.nav{
+    display: flex;
+    justify-content: center;
+}
+
+.nav ul{
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+.nav ul li{
+    list-style: none;
+}
+.nav ul li a{
+    color: white;
+    text-decoration: none;
+    width: 100%;
+}

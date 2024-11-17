@@ -1,0 +1,30 @@
+.divBtn{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    cursor: pointer;
+    min-height: 80px !important;
+    padding: 10px;
+    text-decoration: none;
+    width: 50%;
+    border-radius: 3px;
+    font-size: clamp(1rem, 5vw, 1.5rem);;
+    background: linear-gradient(to left, #000000, #3533cd);
+    text-align: center;
+}
+
+@media (max-width: 968px){
+    .divBtn{
+        width: 100%;
+        margin-top: 0;
+    }
+    .btn{
+        width: 100%;
+    }
+}
