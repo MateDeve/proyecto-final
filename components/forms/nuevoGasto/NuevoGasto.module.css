@@ -1,0 +1,86 @@
+.h1{
+    color: #ffffff;
+    font-size: 80px; 
+    margin-bottom: 50px;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+}
+
+.mainContainer{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    min-height: 80vh;
+    align-items: center;
+}
+.mainContainer .container{
+    align-items: center;
+    justify-content: flex-start;
+}
+.mainSection{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.formViaje{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: center;
+    gap: 40px;
+
+}
+
+.formViaje p{
+    font-size: x-large;
+}
+.rowInput{
+    border: none;
+    border-radius: 3px;
+    background-color: #ffffff;
+    color: #000000;
+}
+.rowInput::-webkit-calendar-picker-indicator {
+    background: none;
+    color: inherit;
+    cursor: pointer;
+}
+.rowInput:focus{
+    outline: 3px solid #3533cd;
+}
+
+.containerCheckbox{
+    display: flex;
+    font-size: x-large;
+    width: 50%;
+}
+
+.customCheckbox {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    margin-right: 25px;
+    border: 3px solid #3533cd;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.customCheckbox:checked {
+    background-color: #3533cd;
+}
+
+.btn{
+    background: linear-gradient(to right, #000000, #3533cd);
+    color: #ffffff;
+    cursor: pointer;
+    height: 50px !important;
+    font-size: x-large;
+    width: 200%;
+    margin-bottom: 50px;
+}

@@ -8,9 +8,10 @@ const MisViajes = () => {
     const [view, setView] = useState('viajes')
     const router = useRouter();
     const changeView = (newView, viaje) => {
-        router.push(`?view=${newView}`, undefined, { shallow: true });
         if(viaje != ''){
             router.push(`?view=${newView}&viaje=${viaje}`, undefined, { shallow: true });
+        }else{
+            router.push(`?view=${newView}`, undefined, { shallow: true });
         }
     };
 

@@ -21,7 +21,7 @@ const Pagina = ({titulo, changeView, view, setView}) => {
                 {titulo !== "Mis viajes" && 
                     <>
                         <div className={btns}>
-                        <Button texto="Añadir gasto" link="añadir-gasto"/>
+                        <Button texto="Añadir gasto" link="nuevoGasto"/>
                         <Button texto="Mirar balance" link="balance"/>
                         </div>
                         <ListaGastos/>

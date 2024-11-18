@@ -82,3 +82,15 @@ h2{
 button{
   border: none;
 }
+
+select{
+  width: 60%;
+  height: 35px;
+  border: none;
+  border-radius: 3px;
+  background-color: #ffffff;
+  color: #000000;
+}
+select:focus{
+  outline: 3px solid #3533cd;
+}
