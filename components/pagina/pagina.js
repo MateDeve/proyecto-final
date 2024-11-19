@@ -4,7 +4,13 @@ import ListaGastos from "../gastos/listaGastos"
 import { mainContainer, container, btns} from "../../styles/Pages.module.css"
 import { btn } from "../button/button.module.css"
 
-const Pagina = ({titulo, changeView, view, setView}) => {
+const Pagina = ({titulo, changeView, view, setView, codigo}) => {
+    let linkNuevoGasto = "nuevo-gasto"
+    let linkBalance = "balance"
+    if (codigo){
+        linkNuevoGasto = linkNuevoGasto + "?viaje=" + codigo
+        linkBalance = linkBalance + "?viaje=" + codigo
+    }
     return(
         <div className={mainContainer}>
             <div className={container}>
@@ -21,8 +27,8 @@ const Pagina = ({titulo, changeView, view, setView}) => {
                 {titulo !== "Mis viajes" && 
                     <>
                         <div className={btns}>
-                        <Button texto="Añadir gasto" link="nuevoGasto"/>
-                        <Button texto="Mirar balance" link="balance"/>
+                        <Button texto="Añadir gasto" link={linkNuevoGasto}/>
+                        <Button texto="Mirar balance" link={linkBalance}/>
                         </div>
                         <ListaGastos/>
                         <button className={btn} onClick={() => {changeView('viajes', '')}}>Regresar</button>

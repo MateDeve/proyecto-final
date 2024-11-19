@@ -47,3 +47,20 @@
     font-size: x-large;
     width: 200%;
 }
+
+.listaSeleccionados{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+.seleccionado{
+    list-style: none;
+}
+
+.btnEliminar{
+    background: linear-gradient(to right, #3533cd, #100f54);
+    padding-left: 2px;
+    padding-right: 2px;
+    cursor: pointer;
+}

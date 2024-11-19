@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react"
 import Header from "@/components/header/header"
 import ImagenMain from "@/components/imagenMain/imagenMain"
 import Cards from "@/components/cards/cards"
@@ -7,6 +8,13 @@ import { mainContainer, container, linea, textMain } from "../styles/Home.module
 
 
 const Index = () => {
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+      const user = JSON.parse(localStorage.getItem("currentUser"));
+      setCurrentUser(user);
+  }, []);
+
   return(
     <>
       <Header/>
@@ -21,7 +29,9 @@ const Index = () => {
             Gestión de gastos de manera sencilla
           </section>
           <Cards backColor={true}/>
-          <Button texto="¡Empieza Ahora!" link="register"/>
+          {!currentUser &&
+            <Button texto="¡Empieza Ahora!" link="register"/>
+          }
         </div>
       </div>
       <Footer/>

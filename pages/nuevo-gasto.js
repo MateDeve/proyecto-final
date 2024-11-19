@@ -1,16 +1,16 @@
 import Header from "@/components/header/header"
 import Footer from "@/components/footer/footer"
-import NuevoGasto from "@/components/forms/nuevoGasto/nuevoGasto"
+import AnadirGasto from "@/components/forms/anadirGasto/anadirGasto"
 import { mainContainer, container } from "../styles/Pages.module.css"
 
 
-const NuevoGastos = () => {
+const NuevoGasto = () => {
     return(
         <>
             <Header/>
             <div className={mainContainer}>
                 <div className={container}>
-                    <NuevoGasto/>
+                    <AnadirGasto/>
                 </div>
             </div>
             <Footer/>
@@ -18,4 +18,4 @@ const NuevoGastos = () => {
     )
 }
 
-export default NuevoGastos
+export default NuevoGasto

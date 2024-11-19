@@ -1,30 +1,29 @@
 import React, { useState } from "react"
 import { card, letraColor, gasto, infoGasto } from "./Gastos.module.css"
 
-const Gasto = ({nombre}) => {
+const Gasto = ({info}) => {
     const [informacion, setInformacion] = useState(false)
     return(
-        <div className={gasto} data-gasto={nombre} onClick={() => {setInformacion(!informacion)}}>
-            <div className={card}>
+        <div className={gasto} data-gasto={info.name}>
+            <div className={card} onClick={() => {setInformacion(!informacion)}}>
                 <div className={letraColor}>
                     <div>
-                        {nombre}
+                        {info.name}
                     </div>
                     <div>
-                        26/09/2024
+                        {info.date}
                     </div>
                 </div>
             </div>
             {informacion && 
-                <div className={infoGasto} id={nombre}>
+                <div className={infoGasto} id={info.name}>
                     <ul>
-                        <li>Total pagado: 100</li>
-                        <li>Pagado por: Mateo</li>
-                        <li>Para 4 participantes incluyéndome:</li>
-                        <li>Camilo: 25</li>
-                        <li>Daniel: 25</li>
-                        <li>Manuela: 25</li>
-                        <li>Mateo: 25</li>
+                        <li>Total pagado: {info.price}</li>
+                        <li>Pagado por: {info.paidFor}</li>
+                        <li>Para {info.divBetween.length} participante(s):</li>
+                        {info.divBetween.map((payer, index) => (
+                            <li key={index} className={letraColor}>{payer.userName} : ${payer.paid}</li>
+                        ))}
                     </ul>
                 </div>
             }

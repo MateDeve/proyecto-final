@@ -60,7 +60,6 @@ form{
   align-items: center;
   width: 50%;
   justify-content: center;
-  gap: 20px;
 }
 input{
   width: 60%;
@@ -68,6 +67,8 @@ input{
   border: none;
   border-radius: 3px;
   background-color: #ffffff;
+  color: #0a0a0a;
+  margin-bottom: 20px;
 }
 input:focus{
   outline: 3px solid #3533cd;
