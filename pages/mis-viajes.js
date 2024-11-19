@@ -27,7 +27,7 @@ const MisViajes = () => {
         <>
             <Header/>
             {view === 'viajes' && <Pagina titulo="Mis viajes"  changeView={changeView} view={view} setView={setView}/>}
-            {view === 'detalle' && <Pagina titulo={viaje + ": " + codigo} changeView={changeView} view={view} setview={setView} codigo={codigo}/>}
+            {view === 'detalle' && <Pagina titulo={viaje} changeView={changeView} view={view} setview={setView} codigo={codigo}/>}
             <Footer/>
         
         </>

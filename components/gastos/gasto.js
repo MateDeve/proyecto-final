@@ -22,7 +22,7 @@ const Gasto = ({info}) => {
                         <li>Pagado por: {info.paidFor}</li>
                         <li>Para {info.divBetween.length} participante(s):</li>
                         {info.divBetween.map((payer, index) => (
-                            <li key={index} className={letraColor}>{payer.userName} : ${payer.paid}</li>
+                            <li key={index} className={letraColor}>{payer.userName} : ${payer.paid.toLocaleString("es-CO")}</li>
                         ))}
                     </ul>
                 </div>

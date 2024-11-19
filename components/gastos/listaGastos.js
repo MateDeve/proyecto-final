@@ -56,7 +56,7 @@ const ListaGastos = () => {
                     </div>
                 </div>
             </section>
-            <h3>Participantes</h3>
+            <h3 style={{marginBottom: "10px"}}>Participantes: </h3>
             {selectedViaje && 
                 <Usuarios participantes={[selectedViaje.owner, ...selectedViaje.guests]} gastos={selectedViaje.Bills}/>
             }

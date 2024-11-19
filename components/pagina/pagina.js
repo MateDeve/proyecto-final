@@ -9,7 +9,7 @@ const Pagina = ({titulo, changeView, view, setView, codigo}) => {
     let linkBalance = "balance"
     if (codigo){
         linkNuevoGasto = linkNuevoGasto + "?viaje=" + codigo
-        linkBalance = linkBalance + "?viaje=" + codigo
+        linkBalance = linkBalance + "?viaje=" + titulo + "&codigo=" + codigo
     }
     return(
         <div className={mainContainer}>
