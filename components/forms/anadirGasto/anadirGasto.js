@@ -95,6 +95,7 @@ const AnadirGasto = () => {
         date: "",
         divBetween: [],
         })
+        setError("")
         setSuccess("Gasto añadido correctamente. Redirigiendo...")
         setTimeout(() => {
             window.location.href = "mis-viajes?view=detalle&viaje=" + selectedViaje.name + "&codigo=" + viaje
@@ -112,8 +113,6 @@ const AnadirGasto = () => {
     return (
         <>
         <h2>Nuevo gasto</h2>
-        {error && <p style={{color: "red"}}>{error}</p>}
-        {success && <p style={{color:"green"}}>{success}</p>}
         <section className={mainSection}>
             <form className={formViaje} onSubmit={handleAddGasto}>
                 <input
@@ -162,6 +161,8 @@ const AnadirGasto = () => {
                     <label htmlFor={persona}>{persona}</label>
                     </div>
                 ))}
+                {error && <p style={{color: "red"}}>{error}</p>}
+                {success && <p style={{color:"green"}}>{success}</p>}
                 <input type="submit" value="Añadir gasto" className={btn} />
             </form>
         </section>

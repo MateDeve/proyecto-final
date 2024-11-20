@@ -15,6 +15,7 @@ const MisViajes = () => {
         }
     };
 
+
     useEffect(() => {
         const queryView = router.query.view || 'viajes'; 
         setView(queryView)
@@ -26,8 +27,8 @@ const MisViajes = () => {
     return(
         <>
             <Header/>
-            {view === 'viajes' && <Pagina titulo="Mis viajes"  changeView={changeView} view={view} setView={setView}/>}
-            {view === 'detalle' && <Pagina titulo={viaje} changeView={changeView} view={view} setview={setView} codigo={codigo}/>}
+                {view === 'viajes' && <Pagina titulo="Mis viajes"  changeView={changeView} view={view} setView={setView}/>}
+                {view === 'detalle' && <Pagina titulo={viaje} changeView={changeView} view={view} setview={setView} codigo={codigo}/>}
             <Footer/>
         
         </>

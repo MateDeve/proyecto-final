@@ -30,6 +30,7 @@ const InicioSesion = () => {
 
         // Guardar información de inicio de sesión en localStorage
         localStorage.setItem("currentUser", JSON.stringify(user));
+        setError("")
         setSuccess("Inicio de sesión exitoso")
         setTimeout(() => {
             window.location.href = "/mis-viajes?view=viajes";
@@ -39,8 +40,6 @@ const InicioSesion = () => {
     return (
         <>
             <h2>Iniciar Sesión</h2>
-            {error && <p style={{ color: "red" }}>{error}</p>}
-            {success && <p style={{ color: "green" }}>{success}</p>}
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -56,6 +55,8 @@ const InicioSesion = () => {
                     value={formData.password}
                     onChange={handleChange}
                 />
+                {error && <p style={{ color: "red" }}>{error}</p>}
+                {success && <p style={{ color: "green" }}>{success}</p>}
                 <input
                     type="submit"
                     className={btn}

@@ -55,6 +55,7 @@ const Registro = () => {
         };
 
         localStorage.setItem("users", JSON.stringify([...existingUsers, newUser]));
+        setError("")
         setSuccess("Registro completado satisfactoriamente. Redirigiendo")
         setTimeout(() => {
             window.location.href = "/login";
@@ -64,8 +65,6 @@ const Registro = () => {
     return (
         <>
             <h2>Registro</h2>
-            {error && <p style={{ color: "red" }}>{error}</p>}
-            {success && <p style={{ color: "green" }}>{success}</p>}
             <form onSubmit={validateForm}>
                 <input
                     type="text"
@@ -123,6 +122,8 @@ const Registro = () => {
                     onChange={handleChange}
                     required
                 />
+                {error && <p style={{ color: "red" }}>{error}</p>}
+                {success && <p style={{ color: "green" }}>{success}</p>}
                 <input
                     type="submit"
                     className={btn}
