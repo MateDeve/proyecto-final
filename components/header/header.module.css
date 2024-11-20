@@ -1,42 +1,87 @@
-.header{
-    position: absolute;
+.navLogo {
+    display: flex;
+    align-items: center;
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 70px;
+    justify-content: space-between;
 }
 
-.navLogo{
-    display: flex;
-    align-items: center;
-}
-
-.logo{
+.logo {
     flex-grow: 2;
 }
 
-.logo a{
+.logo a {
     color: #ffffff;
     text-decoration: none;
     font-size: x-large;
 }
 
-.nav{
+.nav {
     display: flex;
     justify-content: center;
 }
 
-.nav ul{
+.nav ul {
     display: flex;
     gap: 20px;
-    width: 100%;
 }
-.nav ul li{
+
+.nav ul li {
     list-style: none;
 }
-.nav ul li a{
+
+.nav ul li a {
     color: white;
     text-decoration: none;
     width: 100%;
+}
+
+/* Botón de menú hamburguesa */
+.menuButton {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* Oculto en pantallas grandes */
+}
+
+/* Responsive: ocultar menú en pantallas pequeñas */
+@media (max-width: 768px) {
+    .menuButton {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+        flex-direction: column;
+        background: linear-gradient(to left, #000000, #111036);
+        position: absolute;
+        right: 60px;
+        top: 55px;
+        width: 150px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav ul li{
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav ul li a{
+        text-align: center;
+    }
+
+    .showMenu {
+        display: flex; 
+    }
+
+    .menuClosed {
+        display: none;
+    }
 }

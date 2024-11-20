@@ -1,32 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
-import { info, card, letraColor, gastos } from "./Gastos.module.css";
-import Gasto from "./gasto";
-import Usuarios from "../usuarios/usuarios";
+import React, { useState, useEffect } from "react"
+import { useRouter } from "next/router"
+import { info, card, letraColor, gastos } from "./Gastos.module.css"
+import Gasto from "./gasto"
+import Usuarios from "../usuarios/usuarios"
 
 const ListaGastos = () => {
-    const router = useRouter();
-    const { codigo } = router.query;
-    const [misViajes, setMisViajes] = useState([]);
-    const [selectedViaje, setSelectedViaje] = useState(null);
+    const router = useRouter()
+    const { codigo } = router.query
+    const [misViajes, setMisViajes] = useState([])
+    const [selectedViaje, setSelectedViaje] = useState(null)
     const [user, setUser] = useState([])
 
-    // Efecto para sincronizar el estado con localStorage
     useEffect(() => {
-        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-        const allViajes = JSON.parse(localStorage.getItem("viajes")) || [];
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+        const allViajes = JSON.parse(localStorage.getItem("viajes")) || []
         if (currentUser) {
             setUser(currentUser)
             const userViajes = allViajes.filter(
                 (v) =>
                     v.owner === currentUser.userName ||
                     v.guests.includes(currentUser.userName)
-            );
-            setMisViajes(userViajes);
-            const viajeSeleccionado = userViajes.find((v) => v.code === codigo);
-            setSelectedViaje(viajeSeleccionado || null);
+            )
+            setMisViajes(userViajes)
+            const viajeSeleccionado = userViajes.find((v) => v.code === codigo)
+            setSelectedViaje(viajeSeleccionado || null)
         }
-    }, [codigo]);
+    }, [codigo])
 
     return (
         <>
@@ -38,8 +37,8 @@ const ListaGastos = () => {
                             ? selectedViaje.Bills.reduce((acc, bill) => {
                                 const currentUserBill = bill.divBetween.find(
                                     (usuario) => usuario.userName === user.userName
-                                );
-                                return acc + (currentUserBill ? Number(currentUserBill.paid) : 0);
+                                )
+                                return acc + (currentUserBill ? Number(currentUserBill.paid) : 0)
                             }, 0).toLocaleString("es-CO")
                             : 0}
                     </div>
@@ -73,7 +72,7 @@ const ListaGastos = () => {
                 )}
             </section>
         </>
-    );
-};
+    )
+}
 
-export default ListaGastos;
+export default ListaGastos

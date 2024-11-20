@@ -9,10 +9,10 @@ const AgregarViajes = () => {
     const [logged, setLogged] = useState(false)
 
     useEffect(() => {
-        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"))
         if (currentUser) {
-            setLogged(true);
-            return;
+            setLogged(true)
+            return
         }
     }, [])
     return(

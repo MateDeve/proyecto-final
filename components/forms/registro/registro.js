@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { btn } from "../Forms.module.css";
+import { useState } from "react"
+import { btn } from "../Forms.module.css"
 
 const Registro = () => {
     const [formData, setFormData] = useState({
@@ -10,39 +10,38 @@ const Registro = () => {
         mail: "",
         password: "",
         confPassword: "",
-    });
+    })
 
-    const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
+    const [error, setError] = useState("")
+    const [success, setSuccess] = useState("")
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const { name, value } = e.target
         setFormData((prevData) => ({
             ...prevData,
             [name]: value,
-        }));
-    };
+        }))
+    }
 
     const validateForm = (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
-        const { name, lastName1, lastName2, userName, mail, password, confPassword } = formData;
+        const { name, lastName1, lastName2, userName, mail, password, confPassword } = formData
 
-        // Validacione
+        // Validaciones
         if (!name || !lastName1 || !mail || !password || !lastName2 || !userName) {
-            setError("Todos los campos marcados con * son obligatorios.");
-            return;
+            setError("Todos los campos marcados con * son obligatorios.")
+            return
         }
         if (password !== confPassword) {
-            setError("Las contraseñas no coinciden.");
-            return;
+            setError("Las contraseñas no coinciden.")
+            return
         }
 
-        // Guardar usuario en localStorage
-        const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+        const existingUsers = JSON.parse(localStorage.getItem("users")) || []
         if (existingUsers.some((user) => user.userName === userName)) {
-            setError("Nombre de usuario existente.");
-            return;
+            setError("Nombre de usuario existente.")
+            return
         }
 
         const newUser = {
@@ -52,15 +51,15 @@ const Registro = () => {
             userName,
             mail,
             password,
-        };
+        }
 
-        localStorage.setItem("users", JSON.stringify([...existingUsers, newUser]));
+        localStorage.setItem("users", JSON.stringify([...existingUsers, newUser]))
         setError("")
         setSuccess("Registro completado satisfactoriamente. Redirigiendo")
         setTimeout(() => {
-            window.location.href = "/login";
+            window.location.href = "/login"
         }, 2000)
-    };
+    }
 
     return (
         <>
@@ -131,7 +130,7 @@ const Registro = () => {
                 />
             </form>
         </>
-    );
-};
+    )
+}
 
-export default Registro;
+export default Registro

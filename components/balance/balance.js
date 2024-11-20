@@ -35,12 +35,10 @@ const Balance = () => {
             const participants = [selectedViaje.owner, ...selectedViaje.guests]
             const balances = {}
 
-            // Inicializar los saldos de todos los participantes en 0
             participants.forEach((participant) => {
                 balances[participant] = 0
             })
 
-            // Calcular los saldos
             selectedViaje.Bills.forEach((bill) => {
                 const { paidFor, price, divBetween } = bill
                 const dividedAmount = Number(price) / divBetween.length
@@ -73,7 +71,6 @@ const Balance = () => {
 
         const updatedViaje = selectedViaje
 
-        // Recorremos todos los gastos y ajustamos los valores de `divBetween`
         updatedViaje.Bills.forEach((bill) => {
             const { paidFor, divBetween, price } = bill
             const dividedAmount = Number(price) / divBetween.length
@@ -83,14 +80,12 @@ const Balance = () => {
             })
         })
 
-        // Actualizamos los datos en localStorage
         const allViajes = JSON.parse(localStorage.getItem("viajes")) || []
         const updatedViajes = allViajes.map((v) =>
             v.code === updatedViaje.code ? updatedViaje : v
         )
         localStorage.setItem("viajes", JSON.stringify(updatedViajes))
 
-        // Actualizamos el estado
         setSelectedViaje(updatedViaje)
         setMisViajes(updatedViajes)
         setSuccess("Gastos balanceados correctamente")

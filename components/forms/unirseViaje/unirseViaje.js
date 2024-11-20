@@ -3,55 +3,53 @@ import {mainSection,  mainInfo, p} from "./UnirseViaje.module.css"
 import { btn } from "../Forms.module.css"
 
 const UnirseViaje = () => {
-    const [codigoViaje, setCodigoViaje] = useState("");
-    const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
+    const [codigoViaje, setCodigoViaje] = useState("")
+    const [error, setError] = useState("")
+    const [success, setSuccess] = useState("")
     const [logged, setLogged] = useState(false)
 
     useEffect(() => {
-        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"))
         if (currentUser) {
-            setLogged(true);
-            return;
+            setLogged(true)
+            return
         }
     }, [])
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
-        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"))
 
-        // Obtener viajes existentes
-        const viajes = JSON.parse(localStorage.getItem("viajes")) || [];
-        const viajeEncontrado = viajes.find((viaje) => viaje.code === codigoViaje);
+
+        const viajes = JSON.parse(localStorage.getItem("viajes")) || []
+        const viajeEncontrado = viajes.find((viaje) => viaje.code === codigoViaje)
 
         if (!viajeEncontrado) {
-            setError("El código proporcionado no corresponde a ningún viaje.");
-            return;
+            setError("El código proporcionado no corresponde a ningún viaje.")
+            return
         }
 
-        // Verificar si ya es participante
         if (viajeEncontrado.guests.includes(currentUser.userName)) {
-            setError("Ya eres participante de este viaje.");
-            return;
+            setError("Ya eres participante de este viaje.")
+            return
         }else if(viajeEncontrado.owner === currentUser.userName){
             setError("Eres el propietario de este viaje")
             return
         }
 
-        // Agregar usuario actual como participante
-        viajeEncontrado.guests.push(currentUser.userName);
+        viajeEncontrado.guests.push(currentUser.userName)
         const updatedViajes = viajes.map((viaje) =>
             viaje.code === codigoViaje ? viajeEncontrado : viaje
-        );
-        localStorage.setItem("viajes", JSON.stringify(updatedViajes));
+        )
+        localStorage.setItem("viajes", JSON.stringify(updatedViajes))
 
-        setError("");
-        setSuccess("Te has unido al viaje exitosamente.");
+        setError("")
+        setSuccess("Te has unido al viaje exitosamente.")
         setTimeout(() => {
             window.location.href = "mis-viajes?view=viajes"
         }, 1000)
-    };
+    }
 
     return (
         <>  
@@ -87,9 +85,9 @@ const UnirseViaje = () => {
                 
             }
         </>
-    );
-};
+    )
+}
 
-export default UnirseViaje;
+export default UnirseViaje
 
 

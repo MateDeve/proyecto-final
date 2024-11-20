@@ -1,41 +1,39 @@
-import { useState } from "react";
-import { btn } from "../Forms.module.css";
+import { useState } from "react"
+import { btn } from "../Forms.module.css"
 
 const InicioSesion = () => {
-    const [formData, setFormData] = useState({ userName: "", password: "" });
-    const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
+    const [formData, setFormData] = useState({ userName: "", password: "" })
+    const [error, setError] = useState("")
+    const [success, setSuccess] = useState("")
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
+        const { name, value } = e.target
         setFormData((prevData) => ({
             ...prevData,
             [name]: value,
-        }));
-    };
+        }))
+    }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
 
-        const { userName, password } = formData;
+        const { userName, password } = formData
 
-        // Obtener usuarios del localStorage
-        const users = JSON.parse(localStorage.getItem("users")) || [];
-        const user = users.find((user) => user.userName === userName && user.password === password);
+        const users = JSON.parse(localStorage.getItem("users")) || []
+        const user = users.find((user) => user.userName === userName && user.password === password)
 
         if (!user) {
-            setError("Nombre de usuario o contraseña incorrectos.");
-            return;
+            setError("Nombre de usuario o contraseña incorrectos.")
+            return
         }
 
-        // Guardar información de inicio de sesión en localStorage
-        localStorage.setItem("currentUser", JSON.stringify(user));
+        localStorage.setItem("currentUser", JSON.stringify(user))
         setError("")
         setSuccess("Inicio de sesión exitoso")
         setTimeout(() => {
-            window.location.href = "/mis-viajes?view=viajes";
+            window.location.href = "/mis-viajes?view=viajes"
         }, 1000)
-    };
+    }
 
     return (
         <>
@@ -64,7 +62,7 @@ const InicioSesion = () => {
                 />
             </form>
         </>
-    );
-};
+    )
+}
 
 export default InicioSesion

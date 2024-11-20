@@ -2,21 +2,20 @@ import React, { useState, useEffect } from "react"
 import { viajes } from "./Viaje.module.css"
 import Viaje from "./viaje"
 const ListaViajes = ({changeView}) => {
-    const [misViajes, setMisViajes] = useState([]);
+    const [misViajes, setMisViajes] = useState([])
 
-    // Efecto para sincronizar el estado con localStorage
     useEffect(() => {
-        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-        const allViajes = JSON.parse(localStorage.getItem("viajes")) || [];
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"))
+        const allViajes = JSON.parse(localStorage.getItem("viajes")) || []
         if (currentUser) {
             const userViajes = allViajes.filter(
                 (viaje) => 
                     viaje.owner === currentUser.userName ||
                     viaje.guests.includes(currentUser.userName)
-            );
-            setMisViajes(userViajes);
+            )
+            setMisViajes(userViajes)
         }
-    }, []);
+    }, [])
 
 
     return(

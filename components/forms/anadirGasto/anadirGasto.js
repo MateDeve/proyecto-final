@@ -20,7 +20,6 @@ const AnadirGasto = () => {
     const [error, setError] = useState("")
     const { viaje } = router.query
 
-    // Efecto para sincronizar el estado con localStorage
     useEffect(() => {
         const currentUser = JSON.parse(localStorage.getItem("currentUser"))
         const allViajes = JSON.parse(localStorage.getItem("viajes")) || []
@@ -30,7 +29,7 @@ const AnadirGasto = () => {
             (v) => v.owner === currentUser.userName || v.guests.includes(currentUser.userName)
         )
         setMisViajes(userViajes)
-        // Filtrar el viaje seleccionado
+
         const viajeSeleccionado = userViajes.find((v) => v.code === viaje)
 
         setSelectedViaje(viajeSeleccionado || null)
@@ -38,7 +37,6 @@ const AnadirGasto = () => {
     }, [router.query.viaje])
 
 
-    // Manejar cambios en los campos de entrada
     const handleChange = (e) => {
         const { name, value } = e.target
         setNewGasto((prev) => ({
@@ -46,8 +44,6 @@ const AnadirGasto = () => {
         [name]: value,
         }))
     }
-
-    // Manejar cambios en los checkboxes
     const handleCheckboxChange = (e) => {
         const { id, checked } = e.target
         setNewGasto((prev) => ({
@@ -58,7 +54,6 @@ const AnadirGasto = () => {
         }))
     }
 
-    // Agregar un nuevo gasto
     const handleAddGasto = (e) => {
         e.preventDefault()
 
@@ -71,8 +66,6 @@ const AnadirGasto = () => {
 
         divBetween.some((item) => item.userName === paidFor ? item.paid = price : 0)
 
-
-        // Actualizar el gasto en el viaje correspondiente
         const updatedViajes = misViajes.map((v) => {
             if (v.code === viaje) {
                 const updatedBills = [...(v.Bills || []), newGasto]
@@ -82,12 +75,9 @@ const AnadirGasto = () => {
         })
 
         
-
-        // Guardar los cambios en el localStorage
         setMisViajes(updatedViajes)
         localStorage.setItem("viajes", JSON.stringify(updatedViajes))
-
-        // Limpiar el formulario
+o
         setNewGasto({
         name: "",
         price: "",
@@ -102,7 +92,6 @@ const AnadirGasto = () => {
         }, 1000)
     }
 
-    // Mostrar los invitados del viaje
     const getPersonasDelViaje = () => {
         if (selectedViaje) {
             return [selectedViaje.owner, ...selectedViaje.guests]

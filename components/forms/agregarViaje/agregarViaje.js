@@ -56,7 +56,6 @@ const AgregarViaje = () => {
         return code
     }
 
-    // Valida y guarda el nuevo viaje
     const handleSubmit = (e) => {
         e.preventDefault()
         const { name, badge } = viajeData

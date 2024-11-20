@@ -48,6 +48,15 @@ a {
   }
 }
 
+header {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70px;
+}
+
 footer{
   display: flex;
   justify-content: center;
@@ -74,9 +83,10 @@ input:focus{
   outline: 3px solid #3533cd;
 }
 
+
 h2{
   color: #ffffff;
-  font-size: 60px;
+  font-size: 2.5em;
   margin-bottom: 50px;
 }
 
@@ -96,3 +106,11 @@ select:focus{
   outline: 3px solid #3533cd;
 }
 
+@media (max-width: 1200px){
+  form{
+    width: 100%;
+  }
+  input{
+    width: 90%;
+  }
+}
